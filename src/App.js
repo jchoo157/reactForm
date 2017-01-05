@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import UserMeritRow from './UserMeritRow';
+import MeritOptions from './MeritOptions';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: {
-        sigmaMerits: [
+      companyMerits: {
+        sigmaEngineering: [
           { id: "x", title: "1000 Commits" },
           { id: "y", title: "100 Commits" },
           { id: "z", title: "First Commit" }
+        ],
+        superSmashBrosMerits: [
+          { id: "x", title: "Unlock all characters" },
+          { id: "y", title: "Complete all levels" },
+          { id: "z", title: "Fastest Time" }
         ]
       },
 
@@ -19,7 +25,7 @@ class App extends Component {
           email: 'jchoo156@gmail.com',
           firstName: 'Johnny',
           lastName: 'Choo',
-          merit: { type: 'sigmaMerits', id: 'x' },
+          merit: { type: 'sigmaEngineering', id: 'x' },
           date: '12/01/2018',
           expirationDate: '8/01/2022',
           identificationCode: '123'
@@ -28,7 +34,7 @@ class App extends Component {
           email: 'jchoo156@gmail.com',
           firstName: 'Johnny',
           lastName: 'Choo',
-          merit: { type: 'sigmaMerits', id: 'y' },
+          merit: { type: 'sigmaEngineering', id: 'y' },
           date: '01/01/2017',
           expirationDate: '02/01/2021',
           identificationCode: 'abc'
@@ -37,7 +43,7 @@ class App extends Component {
           email: 'jchoo156@gmail.com',
           firstName: 'Johnny',
           lastName: 'Choo',
-          merit: { type: 'sigmaMerits', id: 'z' },
+          merit: { type: 'sigmaEngineering', id: 'z' },
           date: '3/01/2015',
           expirationDate: '5/01/2019',
           identificationCode: '1337'
@@ -45,22 +51,23 @@ class App extends Component {
       ]
     }
 
-    this.addRow = this.addRow.bind(this);
+    this.addMerit = this.addMerit.bind(this);
   };
 
-    addRow() {
+    addMerit(e) {
     var row = <UserMeritRow />
-    var myArray = this.state.data;
+    var myArray = this.state.companyMerits;
     myArray.push(row);
-    this.setState({data: myArray});
+    this.setState({companyMerits: myArray});
   }
 
 
   render() {
     return (
       <div>
-        {this.state.rows.map((user, i) => <UserMeritRow key={i} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.data[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/>)}
-        <button onClick={this.addData}>ADD</button>
+        <MeritOptions companyMeritsProp={this.state.companyMerits} />
+        {this.state.rows.map((user, i) => <UserMeritRow key={i} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.companyMerits[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/>)}
+        <button onClick={this.addMerit}>ADD</button>
       </div>
     );
   }
