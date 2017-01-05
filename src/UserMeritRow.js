@@ -27,16 +27,18 @@ class UserMeritRow extends Component {
             <td><input type="checkbox" /></td>
             <td><input type="text" defaultValue={this.props.emailProp} placeholder="email" /></td>
             <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
-            <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
+            <td><input type="text" defaultValue={this.props.meritProp} placeholder="last name" /></td>
             <td><select>
-              <option value={this.props.meritProp[this.props.meritIdProp]} selected>{this.props.meritProp[this.props.meritIdProp]}</option>
-              {this.props.meritProp.map(function(merit, i){ return <option key={i} value={merit}>{merit.title}</option> })}
+              {
+                this.props.meritProp.map((merit, i) => 
+                  this.props.meritIdProp == merit.id ? <option key={i} value={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
+                )
               }
             </select></td>
 
-            <td><input type="text" placeholder="date" /></td>
-            <td><input type="text" placeholder="expiration date" /></td>
-            <td><input type="text" placeholder="identification code" /></td>
+            <td><input type="text" defaultValue={this.props.dateProp} placeholder="date" /></td>
+            <td><input type="text" defaultValue={this.props.expirationDateProp} placeholder="expiration date" /></td>
+            <td><input type="text" defaultValue={this.props.identificationProp} placeholder="identification code" /></td>
           </tr>
         </table>
       </div>

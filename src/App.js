@@ -29,9 +29,9 @@ class App extends Component {
           firstName: 'Johnny',
           lastName: 'Choo',
           merit: { type: 'sigmaMerits', id: 'z' },
-          date: '12/01/2016',
-          expirationDate: '8/01/2020',
-          identificationCode: '123'
+          date: '3/01/2016',
+          expirationDate: '5/01/2020',
+          identificationCode: 'abc'
         }
       ]
     }
@@ -50,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.rows.map((user, i) => <UserMeritRow key={i} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.data[user.merit.type]}/>)}
+        {this.state.rows.map((user, i) => <UserMeritRow key={i} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.data[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/>)}
         <button onClick={this.addData}>ADD</button>
       </div>
     );
