@@ -7,13 +7,33 @@ class App extends Component {
 
     this.state = {
       data: {
-        rows: [],
         sigmaMerits: [
           { id: "x", title: "1000 Commits" },
           { id: "y", title: "100 Commits" },
           { id: "z", title: "First Commit" }
         ]
-      }
+      },
+
+      rows: [
+        { 
+          email: 'jchoo156@gmail.com',
+          firstName: 'Johnny',
+          lastName: 'Choo',
+          merit: { type: 'sigmaMerits', id: 'x' },
+          date: '12/01/2016',
+          expirationDate: '8/01/2020',
+          identificationCode: '123'
+        },
+        { 
+          email: 'jchoo156@gmail.com',
+          firstName: 'Johnny',
+          lastName: 'Choo',
+          merit: { type: 'sigmaMerits', id: 'x' },
+          date: '12/01/2016',
+          expirationDate: '8/01/2020',
+          identificationCode: '123'
+        }
+      ]
     }
 
     this.addRow = this.addRow.bind(this);
@@ -21,17 +41,17 @@ class App extends Component {
 
     addRow() {
     var row = <UserMeritRow />
-    var myArray = this.state.data.rows;
+    var myArray = this.state.data;
     myArray.push(row);
-    this.setState({data: {rows: myArray}});
+    this.setState({data: myArray});
   }
 
 
   render() {
     return (
       <div>
-        <button onClick={this.addRow}>ADD</button>
-        {this.state.data.rows.map(function(input, index) { return input })}
+        {this.state.rows.map((user, i) => <UserMeritRow key={i} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritProp={this.state.data[user.merit.type]}/>)}
+        <button onClick={this.addData}>ADD</button>
       </div>
     );
   }

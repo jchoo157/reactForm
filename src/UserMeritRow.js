@@ -25,13 +25,11 @@ class UserMeritRow extends Component {
         <table>
           <tr>
             <td><input type="checkbox" /></td>
-            <td><input type="text" placeholder="email" /></td>
-            <td><input type="text" placeholder="first name" /></td>
-            <td><input type="text" placeholder="last name" /></td>
+            <td><input type="text" defaultValue={this.props.emailProp} placeholder="email" /></td>
+            <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
+            <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
             <td><select>
-              <option value="first commit">First Commit</option>
-              <option value="100 commits">100 Commits</option>
-              <option value="1000 commites">1000 Commits</option>
+              {this.props.meritProp.map((merit, i) => <option key={i} value={merit}>{merit}</option>)}
             </select></td>
 
             <td><input type="text" placeholder="date" /></td>
