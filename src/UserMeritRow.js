@@ -29,7 +29,9 @@ class UserMeritRow extends Component {
             <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
             <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
             <td><select>
-              {this.props.meritProp.map((merit, i) => <option key={i} value={merit}>{merit}</option>)}
+              <option value={this.props.meritProp[this.props.meritIdProp]} selected>{this.props.meritProp[this.props.meritIdProp]}</option>
+              {this.props.meritProp.map(function(merit, i){ return <option key={i} value={merit}>{merit.title}</option> })}
+              }
             </select></td>
 
             <td><input type="text" placeholder="date" /></td>
