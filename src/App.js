@@ -20,18 +20,27 @@ class App extends Component {
           firstName: 'Johnny',
           lastName: 'Choo',
           merit: { type: 'sigmaMerits', id: 'x' },
-          date: '12/01/2016',
-          expirationDate: '8/01/2020',
+          date: '12/01/2018',
+          expirationDate: '8/01/2022',
           identificationCode: '123'
         },
         { 
           email: 'jchoo156@gmail.com',
           firstName: 'Johnny',
           lastName: 'Choo',
-          merit: { type: 'sigmaMerits', id: 'z' },
-          date: '3/01/2016',
-          expirationDate: '5/01/2020',
+          merit: { type: 'sigmaMerits', id: 'y' },
+          date: '01/01/2017',
+          expirationDate: '02/01/2021',
           identificationCode: 'abc'
+        },
+        { 
+          email: 'jchoo156@gmail.com',
+          firstName: 'Johnny',
+          lastName: 'Choo',
+          merit: { type: 'sigmaMerits', id: 'z' },
+          date: '3/01/2015',
+          expirationDate: '5/01/2019',
+          identificationCode: '1337'
         }
       ]
     }

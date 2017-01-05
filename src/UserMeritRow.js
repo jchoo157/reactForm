@@ -27,7 +27,7 @@ class UserMeritRow extends Component {
             <td><input type="checkbox" /></td>
             <td><input type="text" defaultValue={this.props.emailProp} placeholder="email" /></td>
             <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
-            <td><input type="text" defaultValue={this.props.meritProp} placeholder="last name" /></td>
+            <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
             <td><select>
               {
                 this.props.meritProp.map((merit, i) => 
