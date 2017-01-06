@@ -60,6 +60,7 @@ class App extends Component {
     this.selectMerit = this.selectMerit.bind(this);
     this.chooseOrganization = this.chooseOrganization.bind(this);
     this.removeMerits = this.removeMerits.bind(this);
+    this.sendMerits = this.sendMerits.bind(this);
   };
 
   addMerit() {
@@ -94,16 +95,20 @@ class App extends Component {
     this.setState({rows: currentRows})
   };
 
+  sendMerits(e) {
+
+  }
+
   chooseOrganization(e) {
     this.setState({selectedCompany: e.target.value});
   };
-
 
   render() {
     return (
       <div>
         <h1>{this.state.rows.map((user, i) => user.selected.toString())}</h1>
-        <button onClick={this.removeMerits}>Remove: {this.state.selected.length}</button>
+        <button onClick={this.removeMerits}>Remove</button>
+        <button onClick={this.sendMerits}>Send</button>
         <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
         {this.state.rows.map((user, i) => (user.merit.type == this.state.selectedCompany) ? <UserMeritRow key={i} selectedProp={user.selected} selectProp={this.selectMerit} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.companyMerits[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/> : "")}
         <button onClick={this.addMerit}>ADD</button>
