@@ -96,7 +96,18 @@ class App extends Component {
   };
 
   sendMerits(e) {
+    var user = this.state.rows[0].email
+    var currentRows = this.state.rows;
+    for(var i = 0; i < currentRows.length; i++) {
+      if(currentRows[i].selected == true) {
+        currentRows.splice(i, 1)
+        i -= 1
+      }
+    }
 
+    this.setState({rows: currentRows})
+
+    alert("Merits have been succesfully sent to " + user)
   }
 
   chooseOrganization(e) {
