@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SelectedEmail extends Component {
+class SelectEmail extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,4 +16,4 @@ class SelectedEmail extends Component {
   }
 }
 
-export default SelectedEmail;
+export default SelectEmail;

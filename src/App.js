@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserMeritRow from './UserMeritRow';
 import MeritOptions from './MeritOptions';
-import SelectedEmail from './SelectedEmail';
+import SelectEmail from './SelectEmail';
 
 class App extends Component {
   constructor(props) {
@@ -151,6 +151,10 @@ class App extends Component {
     this.setState({rows: myArray});
   }
 
+  selectEmail() {
+
+  }
+
   selectMerit(e) {
     var meritRows = this.state.rows;
     for (var i = 0; i < meritRows.length; i++) {
@@ -198,7 +202,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.selectedEmail}
+        <SelectEmail />
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div>
             <button onClick={this.removeMerits}>Remove</button>
