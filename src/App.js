@@ -13,6 +13,7 @@ class App extends Component {
       selectedEmail: 'jchoo156@gmail.com',
       companyMerits: {
         sigmaEngineering: [
+          { id: "w", title: "Over 9000 Commits" },
           { id: "x", title: "1000 Commits" },
           { id: "y", title: "100 Commits" },
           { id: "z", title: "First Commit" }
@@ -85,7 +86,7 @@ class App extends Component {
               email: 'omer@sigma.com',
               firstName: 'Omer',
               lastName: 'Test',
-              merit: { type: 'sigmaEngineering', id: 'x' },
+              merit: { type: 'sigmaEngineering', id: 'w' },
               date: '12/01/2018',
               expirationDate: '8/01/2022',
               identificationCode: '1231',
