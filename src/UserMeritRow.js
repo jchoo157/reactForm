@@ -6,38 +6,42 @@ class UserMeritRow extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: this.props.checkedProp
     }
 
-    this.addRow = this.addRow.bind(this);
+    this.addToChecked = this.addToChecked.bind(this)
   };
 
-  addRow() {
-    var addRow = this.props.dataProp
+  addToChecked(e) {
     var myArray = this.state.data;
-    myArray.push("hi");
+    myArray.push("0");
     this.setState({data: myArray});
-  }
+  };
 
   render() {
     return (
       <div>
         <table>
-          <tr>
-            <td><input type="checkbox" /></td>
-            <td><input type="text" defaultValue={this.props.emailProp} placeholder="email" /></td>
-            <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
-            <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
-            <td><select>
-              <option value={this.props.meritProp[this.props.meritIdProp]} selected>{this.props.meritProp[this.props.meritIdProp]}</option>
-              {this.props.meritProp.map(function(merit, i){ return <option key={i} value={merit}>{merit.title}</option> })}
-              }
-            </select></td>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" onClick={this.props.selectProp} checked={this.props.selectedProp} id={this.props.identificationProp} /></td>
+              <td><input type="text" defaultValue={this.props.emailProp} placeholder="email" /></td>
+              <td><input type="text" defaultValue={this.props.firstNameProp} placeholder="first name" /></td>
+              <td><input type="text" defaultValue={this.props.lastNameProp} placeholder="last name" /></td>
+              <td><select onChange={this.props.chooseOrganizationProp}>
+                {
+                  this.props.meritProp.map((merit, i) => 
+                    this.props.meritIdProp == merit.id ? <option key={i} value={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
+                  )
+                }
+              </select></td>
 
-            <td><input type="text" placeholder="date" /></td>
-            <td><input type="text" placeholder="expiration date" /></td>
-            <td><input type="text" placeholder="identification code" /></td>
-          </tr>
+              <td><input type="text" defaultValue={this.props.dateProp} placeholder="date" /></td>
+              <td><input type="text" defaultValue={this.props.expirationDateProp} placeholder="expiration date" /></td>
+              <td><input type="text" defaultValue={this.props.identificationProp} placeholder="identification code" /></td>
+              <td><button >Remove</button></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     );
