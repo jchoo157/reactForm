@@ -6,7 +6,7 @@ class MeritOptions extends Component {
     return (
       <div>
         <select onChange={this.props.chooseOrganizationProp}>
-          {this.props.companyMeritsProp.map((company, i) => <option key={i} value={company}>{company}</option>)}
+          {this.props.companyMeritsProp.map((company, i) => <option key={i} defaultValue={company}>{company}</option>)}
         </select>
       </div>
     );

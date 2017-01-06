@@ -202,7 +202,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SelectEmail />
+        <SelectEmail emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div>
             <button onClick={this.removeMerits}>Remove</button>

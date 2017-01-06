@@ -9,7 +9,7 @@ class SelectEmail extends Component {
     return (
       <div>
         <select>
-
+          {this.props.emailsProp.map((email, i) => <option>{email}</option>)}
         </select>
       </div>
     );
