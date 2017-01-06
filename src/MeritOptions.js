@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import App from './App.js';
 
 class MeritOptions extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: this.props.companyMeritsProp
-    }
-  }
-
   render() {
     return (
-      
+      <div>
+        <select onChange={this.props.chooseOrganizationProp}>
+          {this.props.companyMeritsProp.map((company, i) => <option key={i} value={company}>{company}</option>)}
+        </select>
+      </div>
     );
   }
 }
