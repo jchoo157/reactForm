@@ -5,17 +5,6 @@ class UserMeritRow extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      data: this.props.checkedProp
-    }
-
-    this.addToChecked = this.addToChecked.bind(this)
-  };
-
-  addToChecked(e) {
-    var myArray = this.state.data;
-    myArray.push("0");
-    this.setState({data: myArray});
   };
 
   render() {
