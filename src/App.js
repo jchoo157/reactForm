@@ -19,6 +19,11 @@ class App extends Component {
           { id: "z", title: "First Commit" }
         ],
         superSmashBros: [
+          { id: "x", title: "10 wins in a row" },
+          { id: "y", title: "Win 100 online games" },
+          { id: "z", title: "Beat every character" }
+        ],
+        marioKart: [
           { id: "x", title: "Unlock all characters" },
           { id: "y", title: "Complete all levels" },
           { id: "z", title: "Fastest Time" }
@@ -116,7 +121,7 @@ class App extends Component {
               email: 'omer@sigma.com',
               firstName: 'Omer',
               lastName: 'Test',
-              merit: { type: 'superSmashBros', id: 'x' },
+              merit: { type: 'marioKart', id: 'x' },
               date: '4/01/2012',
               expirationDate: '5/01/2019',
               identificationCode: '532',
@@ -126,7 +131,7 @@ class App extends Component {
               email: 'omer@sigma.com',
               firstName: 'Omer',
               lastName: 'Test',
-              merit: { type: 'superSmashBros', id: 'y' },
+              merit: { type: 'marioKart', id: 'y' },
               date: '11/01/2010',
               expirationDate: '5/01/2016',
               identificationCode: '5125',
