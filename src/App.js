@@ -184,13 +184,15 @@ class App extends Component {
     var currentRows = this.state.rows;
     {currentRows.map((user, i) => (Object.keys(user) == this.state.selectedEmail) ? userRow = user : "")}
     for(var i = 0; i < userRow[Object.keys(userRow)].length; i++) {
-      if(userRow[Object.keys(userRow)].selected == true) {
+      if(userRow[Object.keys(userRow)][i].selected == true) {
         userRow[Object.keys(userRow)].splice(i, 1)
         i -= 1
       }
     }
-
-    this.setState({rows: [userRow]})
+    console.log(userRow[Object.keys(userRow)][0].selected)
+    var newArray = []
+    currentRows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userRow) : newArray.push(user))
+    this.setState({rows: newArray});
   };
 
   sendMerits(e) {
