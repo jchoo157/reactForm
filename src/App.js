@@ -173,7 +173,10 @@ class App extends Component {
         userObject[Object.keys(userObject)][i].selected = false;
       }
     };
-    this.setState({rows: [userObject]});
+
+    var newArray = []
+    this.state.rows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userObject) : newArray.push(user))
+    this.setState({rows: newArray});
   };
 
   removeMerits(e) {
