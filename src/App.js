@@ -203,16 +203,17 @@ class App extends Component {
     return (
       <div>
         <SelectEmail emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
+        <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
+
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div>
             <button onClick={this.removeMerits}>Remove</button>
             <button onClick={this.sendMerits}>Send</button>
-            <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
             {email[Object.keys(email)].map((user, i) => (user.merit.type == this.state.selectedCompany) ? <UserMeritRow key={i} selectedProp={user.selected} selectProp={this.selectMerit} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.companyMerits[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/> : "")}
             <button onClick={this.addMerit}>ADD</button>
           </div>
          : "" )}
-        }
+        
       </div>
     );
   }
