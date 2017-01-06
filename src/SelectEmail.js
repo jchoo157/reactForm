@@ -8,7 +8,7 @@ class SelectEmail extends Component {
   render() {
     return (
       <div>
-        <select>
+        <select onChange={this.props.selectEmailProp}>
           {this.props.emailsProp.map((email, i) => <option>{email}</option>)}
         </select>
       </div>

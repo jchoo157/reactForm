@@ -151,8 +151,8 @@ class App extends Component {
     this.setState({rows: myArray});
   }
 
-  selectEmail() {
-
+  selectEmail(e) {
+    this.setState({selectedEmail: e.target.value})
   }
 
   selectMerit(e) {
@@ -171,15 +171,17 @@ class App extends Component {
   };
 
   removeMerits(e) {
+    var userRow = {};
     var currentRows = this.state.rows;
-    for(var i = 0; i < currentRows.length; i++) {
-      if(currentRows[i].selected == true) {
-        currentRows.splice(i, 1)
+    {currentRows.map((user, i) => (Object.keys(user) == this.state.selectedEmail) ? userRow = user : "")}
+    for(var i = 0; i < userRow[Object.keys(userRow)].length; i++) {
+      if(userRow[Object.keys(userRow)].selected == true) {
+        userRow[Object.keys(userRow)].splice(i, 1)
         i -= 1
       }
     }
 
-    this.setState({rows: currentRows})
+    this.setState({rows: [userRow]})
   };
 
   sendMerits(e) {
@@ -204,7 +206,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SelectEmail emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
+        <SelectEmail selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
         <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
 
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
