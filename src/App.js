@@ -8,6 +8,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      identificationGenerator: 100,
       selected: [],
       selectedCompany: 'sigmaEngineering',
       selectedEmail: 'jchoo156@gmail.com',
@@ -40,7 +41,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'x' },
               date: '12/01/2018',
               expirationDate: '8/01/2022',
-              identificationCode: '123',
+              identificationCode: '1',
               selected: false
             },
             { 
@@ -50,7 +51,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'y' },
               date: '01/01/2017',
               expirationDate: '02/01/2021',
-              identificationCode: 'abc',
+              identificationCode: '2',
               selected: false
             },
             { 
@@ -60,7 +61,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'z' },
               date: '3/01/2015',
               expirationDate: '5/01/2019',
-              identificationCode: '1337',
+              identificationCode: '3',
               selected: false
             },
             { 
@@ -70,7 +71,7 @@ class App extends Component {
               merit: { type: 'superSmashBros', id: 'x' },
               date: '4/01/2012',
               expirationDate: '5/01/2019',
-              identificationCode: '1235',
+              identificationCode: '4',
               selected: false
             },
             { 
@@ -80,7 +81,7 @@ class App extends Component {
               merit: { type: 'superSmashBros', id: 'y' },
               date: '11/01/2010',
               expirationDate: '5/01/2016',
-              identificationCode: '12312',
+              identificationCode: '5',
               selected: false
             }
           ]
@@ -94,7 +95,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'w' },
               date: '12/01/2018',
               expirationDate: '8/01/2022',
-              identificationCode: '1231',
+              identificationCode: '6',
               selected: false
             },
             { 
@@ -104,7 +105,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'y' },
               date: '01/01/2017',
               expirationDate: '02/01/2021',
-              identificationCode: 'abc',
+              identificationCode: '7',
               selected: false
             },
             { 
@@ -114,7 +115,7 @@ class App extends Component {
               merit: { type: 'sigmaEngineering', id: 'z' },
               date: '3/01/2015',
               expirationDate: '5/01/2019',
-              identificationCode: '542',
+              identificationCode: '8',
               selected: false
             },
             { 
@@ -124,7 +125,7 @@ class App extends Component {
               merit: { type: 'marioKart', id: 'x' },
               date: '4/01/2012',
               expirationDate: '5/01/2019',
-              identificationCode: '532',
+              identificationCode: '9',
               selected: false
             },
             { 
@@ -134,7 +135,7 @@ class App extends Component {
               merit: { type: 'marioKart', id: 'y' },
               date: '11/01/2010',
               expirationDate: '5/01/2016',
-              identificationCode: '5125',
+              identificationCode: '10',
               selected: false
             }
           ]
@@ -151,7 +152,8 @@ class App extends Component {
   };
 
   addMerit() {
-    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: '', selected: false }
+    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
+    this.state.identificationGenerator += 1;
     var usersArray = this.state.rows;
     var userData = {};
     for(var i = 0; i < usersArray.length; i ++) {
