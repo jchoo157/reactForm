@@ -151,10 +151,17 @@ class App extends Component {
   };
 
   addMerit() {
-    var row = { email: '', firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: '' }
-    var myArray = this.state.rows;
-    myArray.push(row);
-    this.setState({rows: myArray});
+    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: '', selected: false }
+    var usersArray = this.state.rows;
+    var userData = {};
+    for(var i = 0; i < usersArray.length; i ++) {
+      if(Object.keys(usersArray[i]) == this.state.selectedEmail) {
+        console.log(usersArray[i][this.state.selectedEmail])
+        usersArray[i][this.state.selectedEmail].push(row);
+      }
+    };
+
+    this.setState({rows: usersArray});
   }
 
   selectEmail(e) {
@@ -196,18 +203,21 @@ class App extends Component {
   };
 
   sendMerits(e) {
-    var user = this.state.rows[0].email
+    var userRow = {};
     var currentRows = this.state.rows;
-    for(var i = 0; i < currentRows.length; i++) {
-      if(currentRows[i].selected == true) {
-        currentRows.splice(i, 1)
+    {currentRows.map((user, i) => (Object.keys(user) == this.state.selectedEmail) ? userRow = user : "")}
+    for(var i = 0; i < userRow[Object.keys(userRow)].length; i++) {
+      if(userRow[Object.keys(userRow)][i].selected == true) {
+        userRow[Object.keys(userRow)].splice(i, 1)
         i -= 1
       }
     }
+    console.log(userRow[Object.keys(userRow)][0].selected)
+    var newArray = []
+    currentRows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userRow) : newArray.push(user))
+    this.setState({rows: newArray});
 
-    this.setState({rows: currentRows})
-
-    alert("Merits have been succesfully sent to " + user)
+    alert("Merits have been succesfully sent to " + this.state.selectedEmail)
   }
 
   chooseOrganization(e) {
