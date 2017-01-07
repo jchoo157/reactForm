@@ -20,7 +20,7 @@ class UserMeritRow extends Component {
               <td><select onChange={this.props.chooseOrganizationProp}>
                 {
                   this.props.meritProp.map((merit, i) => 
-                    this.props.meritIdProp == merit.id ? <option key={i} value={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
+                    this.props.meritIdProp == merit.id ? <option key={i} defaultValue={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
                   )
                 }
               </select></td>
