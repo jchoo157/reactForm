@@ -3,16 +3,134 @@ import UserMeritRow from './UserMeritRow';
 import MeritOptions from './MeritOptions';
 import SelectEmail from './SelectEmail';
 
+var identificationGenerator = JSON.parse(sessionStorage.getItem('identificationGenerator'))
+var selected = JSON.parse(sessionStorage.getItem('selected'))
+var selectedCompany = JSON.parse(sessionStorage.getItem('selectedCompany'))
+var selectedEmail = JSON.parse(sessionStorage.getItem('selectedEmail'))
+var companyMerits = JSON.parse(sessionStorage.getItem('companyMerits'))
+var rows = JSON.parse(sessionStorage.getItem('rows')) || [];
+
 class App extends Component {
+
   constructor(props) {
     super(props);
+    
+    sessionStorage.setItem('rows', JSON.stringify([
+  {
+    'jchoo156@gmail.com': [
+      { 
+        email: 'jchoo156@gmail.com',
+        firstName: 'Johnny',
+        lastName: 'Choo',
+        merit: { type: 'sigmaEngineering', id: 'x' },
+        date: '12/01/2018',
+        expirationDate: '8/01/2022',
+        identificationCode: '1',
+        selected: false
+      },
+      { 
+        email: 'jchoo156@gmail.com',
+        firstName: 'Johnny',
+        lastName: 'Choo',
+        merit: { type: 'sigmaEngineering', id: 'y' },
+        date: '01/01/2017',
+        expirationDate: '02/01/2021',
+        identificationCode: '2',
+        selected: false
+      },
+      { 
+        email: 'jchoo156@gmail.com',
+        firstName: 'Johnny',
+        lastName: 'Choo',
+        merit: { type: 'sigmaEngineering', id: 'z' },
+        date: '3/01/2015',
+        expirationDate: '5/01/2019',
+        identificationCode: '3',
+        selected: false
+      },
+      { 
+        email: 'jchoo156@gmail.com',
+        firstName: 'Johnny',
+        lastName: 'Choo',
+        merit: { type: 'superSmashBros', id: 'x' },
+        date: '4/01/2012',
+        expirationDate: '5/01/2019',
+        identificationCode: '4',
+        selected: false
+      },
+      { 
+        email: 'jchoo156@gmail.com',
+        firstName: 'Johnny',
+        lastName: 'Choo',
+        merit: { type: 'superSmashBros', id: 'y' },
+        date: '11/01/2010',
+        expirationDate: '5/01/2016',
+        identificationCode: '5',
+        selected: false
+      }
+    ]
+  },
+  {
+    'omer@sigma.com': [
+      { 
+        email: 'omer@sigma.com',
+        firstName: 'Omer',
+        lastName: 'Test',
+        merit: { type: 'sigmaEngineering', id: 'w' },
+        date: '12/01/2018',
+        expirationDate: '8/01/2022',
+        identificationCode: '6',
+        selected: false
+      },
+      { 
+        email: 'omer@sigma.com',
+        firstName: 'Omer',
+        lastName: 'Test',
+        merit: { type: 'sigmaEngineering', id: 'y' },
+        date: '01/01/2017',
+        expirationDate: '02/01/2021',
+        identificationCode: '7',
+        selected: false
+      },
+      { 
+        email: 'omer@sigma.com',
+        firstName: 'Omer',
+        lastName: 'Test',
+        merit: { type: 'sigmaEngineering', id: 'z' },
+        date: '3/01/2015',
+        expirationDate: '5/01/2019',
+        identificationCode: '8',
+        selected: false
+      },
+      { 
+        email: 'omer@sigma.com',
+        firstName: 'Omer',
+        lastName: 'Test',
+        merit: { type: 'marioKart', id: 'x' },
+        date: '4/01/2012',
+        expirationDate: '5/01/2019',
+        identificationCode: '9',
+        selected: false
+      },
+      { 
+        email: 'omer@sigma.com',
+        firstName: 'Omer',
+        lastName: 'Test',
+        merit: { type: 'marioKart', id: 'y' },
+        date: '11/01/2010',
+        expirationDate: '5/01/2016',
+        identificationCode: '10',
+        selected: false
+      }
+    ]
+  }
+]))
 
-    this.state = {
-      identificationGenerator: 100,
-      selected: [],
-      selectedCompany: 'sigmaEngineering',
-      selectedEmail: 'jchoo156@gmail.com',
-      companyMerits: {
+    sessionStorage.setItem('identificationGenerator', JSON.stringify(100))
+    sessionStorage.setItem('selected', JSON.stringify([]))
+    sessionStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))
+    sessionStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))
+    sessionStorage.setItem('companyMerits', JSON.stringify({
         sigmaEngineering: [
           { id: "w", title: "Over 9000 Commits" },
           { id: "x", title: "1000 Commits" },
@@ -29,118 +147,15 @@ class App extends Component {
           { id: "y", title: "Complete all levels" },
           { id: "z", title: "Fastest Time" }
         ]
-      },
+      }))
 
-      rows: [
-        {
-          'jchoo156@gmail.com': [
-            { 
-              email: 'jchoo156@gmail.com',
-              firstName: 'Johnny',
-              lastName: 'Choo',
-              merit: { type: 'sigmaEngineering', id: 'x' },
-              date: '12/01/2018',
-              expirationDate: '8/01/2022',
-              identificationCode: '1',
-              selected: false
-            },
-            { 
-              email: 'jchoo156@gmail.com',
-              firstName: 'Johnny',
-              lastName: 'Choo',
-              merit: { type: 'sigmaEngineering', id: 'y' },
-              date: '01/01/2017',
-              expirationDate: '02/01/2021',
-              identificationCode: '2',
-              selected: false
-            },
-            { 
-              email: 'jchoo156@gmail.com',
-              firstName: 'Johnny',
-              lastName: 'Choo',
-              merit: { type: 'sigmaEngineering', id: 'z' },
-              date: '3/01/2015',
-              expirationDate: '5/01/2019',
-              identificationCode: '3',
-              selected: false
-            },
-            { 
-              email: 'jchoo156@gmail.com',
-              firstName: 'Johnny',
-              lastName: 'Choo',
-              merit: { type: 'superSmashBros', id: 'x' },
-              date: '4/01/2012',
-              expirationDate: '5/01/2019',
-              identificationCode: '4',
-              selected: false
-            },
-            { 
-              email: 'jchoo156@gmail.com',
-              firstName: 'Johnny',
-              lastName: 'Choo',
-              merit: { type: 'superSmashBros', id: 'y' },
-              date: '11/01/2010',
-              expirationDate: '5/01/2016',
-              identificationCode: '5',
-              selected: false
-            }
-          ]
-        },
-        {
-          'omer@sigma.com': [
-            { 
-              email: 'omer@sigma.com',
-              firstName: 'Omer',
-              lastName: 'Test',
-              merit: { type: 'sigmaEngineering', id: 'w' },
-              date: '12/01/2018',
-              expirationDate: '8/01/2022',
-              identificationCode: '6',
-              selected: false
-            },
-            { 
-              email: 'omer@sigma.com',
-              firstName: 'Omer',
-              lastName: 'Test',
-              merit: { type: 'sigmaEngineering', id: 'y' },
-              date: '01/01/2017',
-              expirationDate: '02/01/2021',
-              identificationCode: '7',
-              selected: false
-            },
-            { 
-              email: 'omer@sigma.com',
-              firstName: 'Omer',
-              lastName: 'Test',
-              merit: { type: 'sigmaEngineering', id: 'z' },
-              date: '3/01/2015',
-              expirationDate: '5/01/2019',
-              identificationCode: '8',
-              selected: false
-            },
-            { 
-              email: 'omer@sigma.com',
-              firstName: 'Omer',
-              lastName: 'Test',
-              merit: { type: 'marioKart', id: 'x' },
-              date: '4/01/2012',
-              expirationDate: '5/01/2019',
-              identificationCode: '9',
-              selected: false
-            },
-            { 
-              email: 'omer@sigma.com',
-              firstName: 'Omer',
-              lastName: 'Test',
-              merit: { type: 'marioKart', id: 'y' },
-              date: '11/01/2010',
-              expirationDate: '5/01/2016',
-              identificationCode: '10',
-              selected: false
-            }
-          ]
-        }
-      ]
+    this.state = {
+      identificationGenerator: identificationGenerator,
+      selected: selected,
+      selectedCompany: selectedCompany,
+      selectedEmail: selectedEmail,
+      companyMerits: companyMerits,
+      rows: rows
     }
 
     this.addMerit = this.addMerit.bind(this);
@@ -162,6 +177,10 @@ class App extends Component {
         usersArray[i][this.state.selectedEmail].push(row);
       }
     };
+
+    sessionStorage.setItem('rows', JSON.stringify(usersArray));
+
+    console.log(JSON.parse(sessionStorage.getItem('rows')))
 
     this.setState({rows: usersArray});
   }
@@ -229,6 +248,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {console.log(this.state.rows)}
         <SelectEmail selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
         <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
 
@@ -246,5 +266,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
