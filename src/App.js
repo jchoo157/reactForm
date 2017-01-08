@@ -3,19 +3,19 @@ import UserMeritRow from './UserMeritRow';
 import MeritOptions from './MeritOptions';
 import SelectEmail from './SelectEmail';
 
-var identificationGenerator = JSON.parse(sessionStorage.getItem('identificationGenerator'))
-var selected = JSON.parse(sessionStorage.getItem('selected'))
-var selectedCompany = JSON.parse(sessionStorage.getItem('selectedCompany'))
-var selectedEmail = JSON.parse(sessionStorage.getItem('selectedEmail'))
-var companyMerits = JSON.parse(sessionStorage.getItem('companyMerits'))
-var rows = JSON.parse(sessionStorage.getItem('rows')) || [];
+var identificationGenerator = JSON.parse(localStorage.getItem('identificationGenerator'))
+var selected = JSON.parse(localStorage.getItem('selected'))
+var selectedCompany = JSON.parse(localStorage.getItem('selectedCompany'))
+var selectedEmail = JSON.parse(localStorage.getItem('selectedEmail'))
+var companyMerits = JSON.parse(localStorage.getItem('companyMerits'))
+var rows = JSON.parse(localStorage.getItem('rows')) || [];
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    
-    sessionStorage.setItem('rows', JSON.stringify([
+
+    if (localStorage.getItem('rows') === null) {localStorage.setItem('rows', JSON.stringify([
   {
     'jchoo156@gmail.com': [
       { 
@@ -124,13 +124,13 @@ class App extends Component {
       }
     ]
   }
-]))
+]))}
 
-    sessionStorage.setItem('identificationGenerator', JSON.stringify(100))
-    sessionStorage.setItem('selected', JSON.stringify([]))
-    sessionStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))
-    sessionStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))
-    sessionStorage.setItem('companyMerits', JSON.stringify({
+    if (localStorage.getItem('identificationGenerator') === null) {localStorage.setItem('identificationGenerator', JSON.stringify(100))}
+    if (localStorage.getItem('selected') === null) {localStorage.setItem('selected', JSON.stringify([]))}
+    if (localStorage.getItem('selectedCompany') === null) {localStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))}
+    if (localStorage.getItem('selectedEmail') === null) {localStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))}
+    if (localStorage.getItem('companyMerits') === null) {localStorage.setItem('companyMerits', JSON.stringify({
         sigmaEngineering: [
           { id: "w", title: "Over 9000 Commits" },
           { id: "x", title: "1000 Commits" },
@@ -147,7 +147,7 @@ class App extends Component {
           { id: "y", title: "Complete all levels" },
           { id: "z", title: "Fastest Time" }
         ]
-      }))
+      }))}
 
     this.state = {
       identificationGenerator: identificationGenerator,
@@ -178,9 +178,9 @@ class App extends Component {
       }
     };
 
-    sessionStorage.setItem('rows', JSON.stringify(usersArray));
+    localStorage.setItem('rows', JSON.stringify(usersArray));
 
-    console.log(JSON.parse(sessionStorage.getItem('rows')))
+    console.log(JSON.parse(localStorage.getItem('rows')))
 
     this.setState({rows: usersArray});
   }
