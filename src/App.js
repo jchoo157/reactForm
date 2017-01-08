@@ -126,7 +126,7 @@ class App extends Component {
   }
 ]))}
 
-    if (localStorage.getItem('identificationGenerator') === null) {localStorage.setItem('identificationGenerator', JSON.stringify(100))}
+    if (localStorage.getItem('identificationGenerator') === null) {localStorage.setItem('identificationGenerator', JSON.stringify(Math.random()))}
     if (localStorage.getItem('selected') === null) {localStorage.setItem('selected', JSON.stringify([]))}
     if (localStorage.getItem('selectedCompany') === null) {localStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))}
     if (localStorage.getItem('selectedEmail') === null) {localStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))}
@@ -180,8 +180,6 @@ class App extends Component {
 
     localStorage.setItem('rows', JSON.stringify(usersArray));
 
-    console.log(JSON.parse(localStorage.getItem('rows')))
-
     this.setState({rows: usersArray});
   }
 
@@ -217,9 +215,11 @@ class App extends Component {
         i -= 1
       }
     }
-    console.log(userRow[Object.keys(userRow)][0].selected)
     var newArray = []
     currentRows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userRow) : newArray.push(user))
+
+    localStorage.setItem('rows', JSON.stringify(newArray));
+
     this.setState({rows: newArray});
   };
 
@@ -266,7 +266,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;
