@@ -174,7 +174,6 @@ class App extends Component {
     var userData = {};
     for(var i = 0; i < usersArray.length; i ++) {
       if(Object.keys(usersArray[i]) == this.state.selectedEmail) {
-        console.log(usersArray[i][this.state.selectedEmail])
         usersArray[i][this.state.selectedEmail].push(row);
       }
     };
@@ -247,24 +246,32 @@ class App extends Component {
   };
 
   updateMerit(e) {
+    var currentRows = this.state.rows;
     var companyVal = this.state.companyMerits[this.state.selectedCompany]
     var merit = ""
-    companyVal.map((merit, i) => (merit.title == e.target.value) ? (merit = merit.id) : "")
+    for(var i = 0; i < companyVal.length; i++) {
+      if(companyVal[i].title == e.target.value){
+        merit = companyVal[i].id
+      }
+    }
+
     var email = this.state.selectedEmail;
     var userObject = {};
-    var userRow = this.state.rows.map((row, i) => (Object.keys(row) == this.state.selectedEmail) ? (userObject = row) : "");
+    for(var i = 0; i < currentRows.length; i++) {
+      if(Object.keys(currentRows[i]) == email) {
+        userObject = currentRows[i]
+      }
+    }
+
     for (var i = 0; i < userObject[Object.keys(userObject)].length; i++) {
       if(userObject[Object.keys(userObject)][i].identificationCode == e.target.id) {
-        userObject[Object.keys(userObject)][i].merit = {type: e.target.value, id: merit };
+        userObject[Object.keys(userObject)][i].merit.id = merit;
       }
     };
 
-    var newArray = []
-    this.state.rows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userObject) : newArray.push(user))
+    localStorage.setItem('rows', JSON.stringify(currentRows));
 
-    localStorage.setItem('rows', JSON.stringify(newArray));
-
-    this.setState({rows: newArray});
+    this.setState({rows: currentRows});
   }
 
   render() {
@@ -289,6 +296,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
