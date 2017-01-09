@@ -283,18 +283,28 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="inline">
-          <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
-          <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
-          <button onClick={this.removeMerits}>Remove</button>
-          <button onClick={this.sendMerits}>Send</button>
+        <div className="flex">
+          <table>
+            <tbody>
+              <tr>
+                <th className="font15">Select User</th>
+                <th className="font15">Select Organization</th>
+              </tr>
+              <tr>
+                <td><SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} /></td>
+                <td><ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} /></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
+        {this.state.rows.map((email, i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div key={i}>
             <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
             <br />
-            <button onClick={this.addMerit}>ADD</button>
+            <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
+            <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
+            <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
           </div>
          : "" )}
         

@@ -23,6 +23,65 @@
   to { transform: rotate(360deg); }
 }
 
-.inline {
-  display: inline;
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {  
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #5e7cd6;
+  color: white;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonAdd {
+  
+}
+
+.buttonAdd:hover {
+  background-color: red;
+}
+
+.buttonRemove {
+
+}
+
+.buttonSend {
+
+}
+
+.istok {
+  font-family: 'Istok Web', sans-serif;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.font15 {
+  font-size: 15px;
 }
