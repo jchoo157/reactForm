@@ -1,8 +1,6 @@
 # Outbox demonstration
 
-You can check out the live version [here](https://outbox-2017.herokuapp.com/).
-
-## Here is the Outbox!
+## Here is the Outbox! You can check out the live version [here](https://outbox-2017.herokuapp.com/).
 
 ![signup](https://github.com/jchoo157/reactForm/blob/master/public/outbox.png)
 
@@ -10,8 +8,8 @@ You can check out the live version [here](https://outbox-2017.herokuapp.com/).
 - Toggle between user and organizations
 - Add rows for selected user
 - Select a merit from a dropdown menu
-- Select multiple rows which you can send or delete
-- Refresh page and still save state using local storage
+- Select multiple rows which you can send to an email or delete
+- Everything will persist on page refresh (except for the identification code)
 
 ## Tech Used
 
