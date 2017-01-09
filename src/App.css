@@ -99,15 +99,30 @@ input[type=date] {
 
 .istok {
   font-family: 'Istok Web', sans-serif;
+}
 
+.heading {
+  background-color: #F7E8D4;
+  margin: -1px;
+  padding: 10px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 .rufina {
   font-family: 'Rufina', serif;
 }
 
+.heebo {
+  font-family: 'Heebo', sans-serif;
+}
+
 .alike {
   font-family: 'Alike', serif;
+}
+
+.center {
+  text-align: center;
 }
 
 .flex {
