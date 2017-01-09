@@ -24,7 +24,7 @@ class UserMeritRow extends Component {
             </tr>
                 {this.props.rowsProp[Object.keys(this.props.rowsProp)].map((user, i) => (user.merit.type == this.props.selectedCompanyProp) ? (
                   <tr>
-                    <td><input type="checkbox" onClick={this.props.selectProp} checked={user.email} id={user.identificaitonCode} /></td>
+                    <td><input type="checkbox" onClick={this.props.selectProp} checked={user.selected} id={user.identificationCode} /></td>
                     <td><input type="text" defaultValue={user.email} placeholder="email" /></td>
                     <td><input type="text" defaultValue={user.firstName} placeholder="first name" /></td>
                     <td><input type="text" defaultValue={user.lastName} placeholder="last name" /></td>
