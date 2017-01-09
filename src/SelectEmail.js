@@ -9,7 +9,7 @@ class SelectEmail extends Component {
     return (
       <div>
         <select onChange={this.props.selectEmailProp}>
-          {this.props.emailsProp.map((email, i) => <option key={i}>{email}</option>)}
+          {this.props.emailsProp.map((email, i) => (email != this.props.currentEmailProp) ? (<option key={i} defaultValue={email}>{email}</option>) : (<option key={i} defaultValue={this.props.currentEmailProp} selected>{this.props.currentEmailProp}</option>) )}
         </select>
       </div>
     );
