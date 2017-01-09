@@ -13,7 +13,7 @@ class UserMeritRow extends Component {
         <table>
           <tbody>
             <tr>
-              <th>Check</th>
+              <th></th>
               <th>Email</th>
               <th>First Name</th>
               <th>Last Name</th>

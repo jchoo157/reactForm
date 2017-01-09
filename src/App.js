@@ -237,9 +237,12 @@ class App extends Component {
     console.log(userRow[Object.keys(userRow)][0].selected)
     var newArray = []
     currentRows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userRow) : newArray.push(user))
+
+    localStorage.setItem('rows', JSON.stringify(newArray))
+
     this.setState({rows: newArray});
 
-    alert("Merits have been succesfully sent to " + this.state.selectedEmail)
+    alert("Sent email to " + this.state.selectedEmail)
   }
 
   chooseOrganization(e) {
@@ -279,15 +282,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state.rows)}
-        <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
-        <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
+        <div>
+          <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
+          <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
+          <button onClick={this.removeMerits}>Remove</button>
+          <button onClick={this.sendMerits}>Send</button>
+        </div>
 
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div key={i}>
-            <h1>{email[Object.keys(email)].map((user, i) => user.selected.toString())}</h1>
-            <button onClick={this.removeMerits}>Remove</button>
-            <button onClick={this.sendMerits}>Send</button>
             <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
             <br />
             <button onClick={this.addMerit}>ADD</button>
