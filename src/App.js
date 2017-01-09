@@ -126,7 +126,7 @@ class App extends Component {
   }
 ]))}
 
-    if (localStorage.getItem('identificationGenerator') === null) {localStorage.setItem('identificationGenerator', JSON.stringify(Math.random()))}
+    {localStorage.setItem('identificationGenerator', JSON.stringify(Math.random()))}
     if (localStorage.getItem('selected') === null) {localStorage.setItem('selected', JSON.stringify([]))}
     if (localStorage.getItem('selectedCompany') === null) {localStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))}
     if (localStorage.getItem('selectedEmail') === null) {localStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))}

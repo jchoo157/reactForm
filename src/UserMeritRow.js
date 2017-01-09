@@ -28,7 +28,6 @@ class UserMeritRow extends Component {
               <td><input type="text" defaultValue={this.props.dateProp} placeholder="date" /></td>
               <td><input type="text" defaultValue={this.props.expirationDateProp} placeholder="expiration date" /></td>
               <td><input type="text" defaultValue={this.props.identificationProp} placeholder="identification code" /></td>
-              <td><button >Remove</button></td>
             </tr>
           </tbody>
         </table>
