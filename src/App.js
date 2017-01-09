@@ -22,7 +22,7 @@ class App extends Component {
             email: 'jchoo156@gmail.com',
             firstName: 'Johnny',
             lastName: 'Choo',
-            merit: { type: 'sigmaEngineering', id: 'x' },
+            merit: { type: 'Sigma Engineering', id: 'x' },
             date: '2017-01-10',
             expirationDate: '2099-01-10',
             identificationCode: '1',
@@ -32,7 +32,7 @@ class App extends Component {
             email: 'jchoo156@gmail.com',
             firstName: 'Johnny',
             lastName: 'Choo',
-            merit: { type: 'sigmaEngineering', id: 'y' },
+            merit: { type: 'Sigma Engineering', id: 'y' },
             date: '2017-01-10',
             expirationDate: '2099-01-10',
             identificationCode: '2',
@@ -42,7 +42,7 @@ class App extends Component {
             email: 'jchoo156@gmail.com',
             firstName: 'Johnny',
             lastName: 'Choo',
-            merit: { type: 'sigmaEngineering', id: 'z' },
+            merit: { type: 'Sigma Engineering', id: 'z' },
             date: '2017-01-10',
             expirationDate: '2099-01-10',
             identificationCode: '3',
@@ -52,7 +52,7 @@ class App extends Component {
             email: 'jchoo156@gmail.com',
             firstName: 'Johnny',
             lastName: 'Choo',
-            merit: { type: 'superSmashBros', id: 'x' },
+            merit: { type: 'Super Smash Bros', id: 'x' },
             date: '2010-03-05',
             expirationDate: '2020-04-11',
             identificationCode: '4',
@@ -62,7 +62,7 @@ class App extends Component {
             email: 'jchoo156@gmail.com',
             firstName: 'Johnny',
             lastName: 'Choo',
-            merit: { type: 'superSmashBros', id: 'y' },
+            merit: { type: 'Super Smash Bros', id: 'y' },
             date: '2010-01-19',
             expirationDate: '2015-01-19',
             identificationCode: '5',
@@ -76,7 +76,7 @@ class App extends Component {
             email: 'omer@sigma.com',
             firstName: 'Omer',
             lastName: 'Test',
-            merit: { type: 'sigmaEngineering', id: 'w' },
+            merit: { type: 'Sigma Engineering', id: 'w' },
             date: '2016-03-01',
             expirationDate: '2099-03-01',
             identificationCode: '6',
@@ -86,7 +86,7 @@ class App extends Component {
             email: 'omer@sigma.com',
             firstName: 'Omer',
             lastName: 'Test',
-            merit: { type: 'sigmaEngineering', id: 'y' },
+            merit: { type: 'Sigma Engineering', id: 'y' },
             date: '2016-03-01',
             expirationDate: '2099-03-01',
             identificationCode: '7',
@@ -96,7 +96,7 @@ class App extends Component {
             email: 'omer@sigma.com',
             firstName: 'Omer',
             lastName: 'Test',
-            merit: { type: 'sigmaEngineering', id: 'z' },
+            merit: { type: 'Sigma Engineering', id: 'z' },
             date: '2016-03-01',
             expirationDate: '2099-03-01',
             identificationCode: '8',
@@ -106,7 +106,7 @@ class App extends Component {
             email: 'omer@sigma.com',
             firstName: 'Omer',
             lastName: 'Test',
-            merit: { type: 'marioKart', id: 'x' },
+            merit: { type: 'Mario Kart', id: 'x' },
             date: '2012-01-10',
             expirationDate: '2019-01-10',
             identificationCode: '9',
@@ -116,7 +116,7 @@ class App extends Component {
             email: 'omer@sigma.com',
             firstName: 'Omer',
             lastName: 'Test',
-            merit: { type: 'marioKart', id: 'y' },
+            merit: { type: 'Mario Kart', id: 'y' },
             date: '2010-01-10',
             expirationDate: '2016-01-10',
             identificationCode: '10',
@@ -128,21 +128,21 @@ class App extends Component {
 
     {localStorage.setItem('identificationGenerator', JSON.stringify(Math.random()))}
     if (localStorage.getItem('selected') === null) {localStorage.setItem('selected', JSON.stringify([]))}
-    if (localStorage.getItem('selectedCompany') === null) {localStorage.setItem('selectedCompany', JSON.stringify('sigmaEngineering'))}
+    if (localStorage.getItem('selectedCompany') === null) {localStorage.setItem('selectedCompany', JSON.stringify('Sigma Engineering'))}
     if (localStorage.getItem('selectedEmail') === null) {localStorage.setItem('selectedEmail', JSON.stringify('jchoo156@gmail.com'))}
     if (localStorage.getItem('companyMerits') === null) {localStorage.setItem('companyMerits', JSON.stringify({
-        sigmaEngineering: [
+        'Sigma Engineering': [
           { id: "w", title: "Over 9000 Commits" },
           { id: "x", title: "1000 Commits" },
           { id: "y", title: "100 Commits" },
           { id: "z", title: "First Commit" }
         ],
-        superSmashBros: [
+        'Super Smash Bros': [
           { id: "x", title: "10 wins in a row" },
           { id: "y", title: "Win 100 online games" },
           { id: "z", title: "Beat every character" }
         ],
-        marioKart: [
+        'Mario Kart': [
           { id: "x", title: "Unlock all characters" },
           { id: "y", title: "Complete all levels" },
           { id: "z", title: "Fastest Time" }
@@ -295,12 +295,13 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1 className="center heebo heading"><span className="email-header">{this.state.selectedEmail}</span> <span className="sep">/</span> <span className="outbox-header">Outbox for <span className="organization-header">{this.state.selectedCompany}</span></span></h1>
         <div className="flex">
           <table>
             <tbody>
               <tr className="alike">
-                <th className="font15">Select User</th>
-                <th className="font15">Select Organization</th>
+                <th className="font15 select-user-bg">Select User</th>
+                <th className="font15 select-org-bg">Select Organization</th>
               </tr>
               <tr>
                 <td><SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} /></td>
@@ -316,7 +317,7 @@ class App extends Component {
               <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
               <br />
               <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
-              <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
+              <button className="buttonRemove button" onClick={this.removeMerits}>Delete</button>
               <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
             </div>
           </center>

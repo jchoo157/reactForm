@@ -34,6 +34,10 @@ th, td {
   padding: 8px;
 }
 
+th {
+  border-left: 1px solid #ffe5c4;
+}
+
 tr:nth-child(even){background-color: #f7e8d4}
 
 th {
@@ -99,15 +103,54 @@ input[type=date] {
 
 .istok {
   font-family: 'Istok Web', sans-serif;
+}
 
+.heading {
+  background-color: #fcf6ef;
+  margin: -1px;
+  padding: 10px;
+  color: white;
+  text-shadow: 1px 1px 1px #ba9a71;
+}
+
+.select-user-bg {
+  background-color: #f7bf71;
+}
+
+.select-org-bg {
+  background-color: #edbe82;
+}
+
+.sep {
+  color: #ff8e8e;
+}
+
+.outbox-header {
+  color: #99cef7;
+}
+
+.organization-header {
+  color: #6b9df4;
+}
+
+.email-header {
+  color: #6ad87c;
 }
 
 .rufina {
   font-family: 'Rufina', serif;
 }
 
+.heebo {
+  font-family: 'Heebo', sans-serif;
+}
+
 .alike {
   font-family: 'Alike', serif;
+}
+
+.center {
+  text-align: center;
 }
 
 .flex {
@@ -116,7 +159,7 @@ input[type=date] {
 }
 
 .font15 {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .buttonOptions {

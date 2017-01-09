@@ -17,8 +17,8 @@ class UserMeritRow extends Component {
               <th>Email</th>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Organization</th>
-              <th>Date</th>
+              <th>Merit</th>
+              <th>Issue Date</th>
               <th>Expiration Date</th>
               <th>Identification Code</th>
             </tr>
