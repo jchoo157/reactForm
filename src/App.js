@@ -23,8 +23,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'x' },
-        date: '12/01/2018',
-        expirationDate: '8/01/2022',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '1',
         selected: false
       },
@@ -33,8 +33,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '01/01/2017',
-        expirationDate: '02/01/2021',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '2',
         selected: false
       },
@@ -43,8 +43,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '3/01/2015',
-        expirationDate: '5/01/2019',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '3',
         selected: false
       },
@@ -53,8 +53,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'superSmashBros', id: 'x' },
-        date: '4/01/2012',
-        expirationDate: '5/01/2019',
+        date: '2010-03-05',
+        expirationDate: '2020-04-11',
         identificationCode: '4',
         selected: false
       },
@@ -63,8 +63,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'superSmashBros', id: 'y' },
-        date: '11/01/2010',
-        expirationDate: '5/01/2016',
+        date: '2010-01-19',
+        expirationDate: '2015-01-19',
         identificationCode: '5',
         selected: false
       }
@@ -77,8 +77,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'w' },
-        date: '12/01/2018',
-        expirationDate: '8/01/2022',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '6',
         selected: false
       },
@@ -87,8 +87,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '01/01/2017',
-        expirationDate: '02/01/2021',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '7',
         selected: false
       },
@@ -97,8 +97,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '3/01/2015',
-        expirationDate: '5/01/2019',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '8',
         selected: false
       },
@@ -107,8 +107,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'marioKart', id: 'x' },
-        date: '4/01/2012',
-        expirationDate: '5/01/2019',
+        date: '2012-01-10',
+        expirationDate: '2019-01-10',
         identificationCode: '9',
         selected: false
       },
@@ -117,8 +117,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'marioKart', id: 'y' },
-        date: '11/01/2010',
-        expirationDate: '5/01/2016',
+        date: '2010-01-10',
+        expirationDate: '2016-01-10',
         identificationCode: '10',
         selected: false
       }
