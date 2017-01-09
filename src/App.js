@@ -295,7 +295,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="center heebo heading"><span className="email-header">{this.state.selectedEmail}</span> <span className="sep">/</span> <span className="organization-header">Outbox for {this.state.selectedCompany}</span></h1>
+        <h1 className="center heebo heading"><span className="email-header">{this.state.selectedEmail}</span> <span className="sep">/</span> <span className="outbox-header">Outbox for <span className="organization-header">{this.state.selectedCompany}</span></span></h1>
         <div className="flex">
           <table>
             <tbody>
@@ -317,7 +317,7 @@ class App extends Component {
               <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
               <br />
               <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
-              <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
+              <button className="buttonRemove button" onClick={this.removeMerits}>Delete</button>
               <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
             </div>
           </center>

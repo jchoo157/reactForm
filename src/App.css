@@ -106,15 +106,19 @@ input[type=date] {
   margin: -1px;
   padding: 10px;
   color: white;
-  text-shadow: 1px 1px 1px #c1ab8d;
+  text-shadow: 1px 1px 1px #ba9a71;
 }
 
 .sep {
   color: #ff8e8e;
 }
 
-.organization-header {
+.outbox-header {
   color: #99cef7;
+}
+
+.organization-header {
+  color: #6b9df4;
 }
 
 .email-header {
