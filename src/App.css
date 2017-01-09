@@ -47,7 +47,6 @@ th {
 }
 
 input[type=text] {
-  width: 100%;
   padding: 3px;
   margin: 8px 0;
   border: 1px solid #777777;
