@@ -169,6 +169,8 @@ class App extends Component {
     this.updateValue = this.updateValue.bind(this);
     this.updateLastName = this.updateLastName.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+    this.updateDate = this.updateDate.bind(this);
+    this.updateExpirationDate = this.updateExpirationDate.bind(this);
   };
 
   addMerit() {
@@ -332,6 +334,14 @@ class App extends Component {
     this.updateValue('email', e);
   }
 
+  updateDate(e) {
+    this.updateValue('date', e);
+  }
+
+  updateExpirationDate(e) {
+    this.updateValue('expirationDate', e);
+  }
+
   render() {
     return (
       <div>
@@ -354,7 +364,7 @@ class App extends Component {
         {this.state.rows.map((email, i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <center>
             <div key={i} className="buttonOptions">
-              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits} updateFirstNameProp={this.updateFirstName} updateLastNameProp={this.updateLastName} updateEmailProp={this.updateEmail}/>
+              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits} updateFirstNameProp={this.updateFirstName} updateLastNameProp={this.updateLastName} updateEmailProp={this.updateEmail} updateDateProp={this.updateDate} updateExpirationDateProp={this.updateExpirationDate}/>
               <br />
               <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
               <button className="buttonRemove button" onClick={this.removeMerits}>Delete</button>

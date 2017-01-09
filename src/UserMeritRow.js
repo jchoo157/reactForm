@@ -35,8 +35,8 @@ class UserMeritRow extends Component {
                     )
                   }
                 </select></td>
-                <td><input type="date" defaultValue={row.date} placeholder="date" /></td>
-                <td><input type="date" defaultValue={row.expirationDate} placeholder="expiration date" /></td>
+                <td><input type="date" defaultValue={row.date} onChange={this.props.updateDateProp} placeholder="date" /></td>
+                <td><input type="date" defaultValue={row.expirationDate} onChange={this.props.updateExpirationDateProp} placeholder="expiration date" /></td>
                 <td><input type="text" defaultValue={row.identificationCode} placeholder="identification code" /></td>
               </tr>) : ""
             )}
