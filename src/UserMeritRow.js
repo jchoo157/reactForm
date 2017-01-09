@@ -28,10 +28,10 @@ class UserMeritRow extends Component {
                     <td><input type="text" defaultValue={user.email} placeholder="email" /></td>
                     <td><input type="text" defaultValue={user.firstName} placeholder="first name" /></td>
                     <td><input type="text" defaultValue={user.lastName} placeholder="last name" /></td>
-                    <td><select onChange={this.props.chooseOrganizationProp}>
+                    <td><select onChange={this.props.updateMerit}>
                       {
                         this.props.meritProp[user.merit.type].map((merit, i) => 
-                          user.meritId == merit.id ? <option key={i} defaultValue={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
+                          (user.merit.id == merit.id) ? <option key={i} value={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
                         )
                       }
                     </select></td>

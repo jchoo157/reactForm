@@ -245,6 +245,10 @@ class App extends Component {
     this.setState({selectedCompany: e.target.value});
   };
 
+  updateMerit(e) {
+    
+  }
+
   render() {
     return (
       <div>
@@ -258,6 +262,7 @@ class App extends Component {
             <button onClick={this.removeMerits}>Remove</button>
             <button onClick={this.sendMerits}>Send</button>
             <UserMeritRow key={i} rowsProp={email} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
+            <br />
             <button onClick={this.addMerit}>ADD</button>
           </div>
          : "" )}
