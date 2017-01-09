@@ -38,7 +38,8 @@ tr:nth-child(even){background-color: #f7e8d4}
 
 th {
   background-color: #f4ae4b;
-  color: #303030;
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 input[type=text] {
