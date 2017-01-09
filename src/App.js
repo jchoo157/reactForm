@@ -300,8 +300,8 @@ class App extends Component {
           <table>
             <tbody>
               <tr className="alike">
-                <th className="font15">Select User</th>
-                <th className="font15">Select Organization</th>
+                <th className="font15 select-user-bg">Select User</th>
+                <th className="font15 select-org-bg">Select Organization</th>
               </tr>
               <tr>
                 <td><SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} /></td>

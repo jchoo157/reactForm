@@ -34,6 +34,10 @@ th, td {
   padding: 8px;
 }
 
+th {
+  border-left: 1px solid #ffe5c4;
+}
+
 tr:nth-child(even){background-color: #f7e8d4}
 
 th {
@@ -109,6 +113,14 @@ input[type=date] {
   text-shadow: 1px 1px 1px #ba9a71;
 }
 
+.select-user-bg {
+  background-color: #f7bf71;
+}
+
+.select-org-bg {
+  background-color: #edbe82;
+}
+
 .sep {
   color: #ff8e8e;
 }
@@ -122,7 +134,7 @@ input[type=date] {
 }
 
 .email-header {
-  color: #93ed94;
+  color: #6ad87c;
 }
 
 .rufina {
@@ -147,7 +159,7 @@ input[type=date] {
 }
 
 .font15 {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .buttonOptions {
