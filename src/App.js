@@ -295,7 +295,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="center heebo heading">Outbox for {this.state.selectedCompany}</h1>
+        <h1 className="center heebo heading"><span className="email-header">{this.state.selectedEmail}</span> <span className="sep">/</span> <span className="organization-header">Outbox for {this.state.selectedCompany}</span></h1>
         <div className="flex">
           <table>
             <tbody>

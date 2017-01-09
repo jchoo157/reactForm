@@ -102,11 +102,23 @@ input[type=date] {
 }
 
 .heading {
-  background-color: #F7E8D4;
+  background-color: #fcf6ef;
   margin: -1px;
   padding: 10px;
   color: white;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px #c1ab8d;
+}
+
+.sep {
+  color: #ff8e8e;
+}
+
+.organization-header {
+  color: #99cef7;
+}
+
+.email-header {
+  color: #93ed94;
 }
 
 .rufina {
