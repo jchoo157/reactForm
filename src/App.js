@@ -184,6 +184,7 @@ class App extends Component {
   }
 
   selectEmail(e) {
+    localStorage.setItem('selectedEmail', JSON.stringify(e.target.value))
     this.setState({selectedEmail: e.target.value})
   }
 
@@ -279,7 +280,7 @@ class App extends Component {
     return (
       <div>
         {console.log(this.state.rows)}
-        <SelectEmail selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
+        <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
         <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
 
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
