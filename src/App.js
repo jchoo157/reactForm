@@ -178,7 +178,7 @@ class App extends Component {
     if(mm < 10) {
         mm = '0' + mm
     } 
-    today = yyyy+'-'+dd+'-'+mm;
+    today = yyyy+'-'+mm+'-'+dd;
 
     var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: today, expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
     this.state.identificationGenerator = Math.random();
