@@ -168,7 +168,19 @@ class App extends Component {
   };
 
   addMerit() {
-    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    if(dd < 10) {
+      dd = '0' + dd
+    } 
+    if(mm < 10) {
+        mm = '0' + mm
+    } 
+    today = yyyy+'-'+dd+'-'+mm;
+
+    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: today, expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
     this.state.identificationGenerator = Math.random();
     var usersArray = this.state.rows;
     var userData = {};
