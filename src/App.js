@@ -165,6 +165,10 @@ class App extends Component {
     this.sendMerits = this.sendMerits.bind(this);
     this.selectEmail = this.selectEmail.bind(this);
     this.updateMerit = this.updateMerit.bind(this);
+    this.updateFirstName = this.updateFirstName.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+    this.updateLastName = this.updateLastName.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
   };
 
   addMerit() {
@@ -292,6 +296,42 @@ class App extends Component {
     this.setState({rows: currentRows});
   }
 
+  updateValue(value, e) {
+    var id = e.target.parentElement.parentElement.id
+    var currentRows = this.state.rows;
+    var companyVal = this.state.companyMerits[this.state.selectedCompany]
+
+    var email = this.state.selectedEmail;
+    var userObject = {};
+    for(var i = 0; i < currentRows.length; i++) {
+      if(Object.keys(currentRows[i]) == email) {
+        userObject = currentRows[i]
+      }
+    }
+
+    for (var i = 0; i < userObject[Object.keys(userObject)].length; i++) {
+      if(userObject[Object.keys(userObject)][i].identificationCode == id) {
+        userObject[Object.keys(userObject)][i][value] = e.target.value;
+      }
+    };
+
+    localStorage.setItem('rows', JSON.stringify(currentRows));
+
+    this.setState({rows: currentRows});
+  }
+
+  updateFirstName(e) {
+    this.updateValue('firstName', e);
+  }
+
+  updateLastName(e) {
+    this.updateValue('lastName', e);
+  }
+
+  updateEmail(e) {
+    this.updateValue('email', e);
+  }
+
   render() {
     return (
       <div>
@@ -314,7 +354,7 @@ class App extends Component {
         {this.state.rows.map((email, i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <center>
             <div key={i} className="buttonOptions">
-              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
+              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits} updateFirstNameProp={this.updateFirstName} updateLastNameProp={this.updateLastName} updateEmailProp={this.updateEmail}/>
               <br />
               <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
               <button className="buttonRemove button" onClick={this.removeMerits}>Delete</button>
