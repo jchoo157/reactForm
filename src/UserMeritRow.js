@@ -10,7 +10,7 @@ class UserMeritRow extends Component {
   render() {
     return (
       <div>
-        <table className="istok">
+        <table className="alike">
           <tbody>
             <tr>
               <th></th>

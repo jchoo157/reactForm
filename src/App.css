@@ -34,15 +34,30 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #f7e8d4}
 
 th {
-  background-color: #5e7cd6;
-  color: white;
+  background-color: #f4ae4b;
+  color: #303030;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 3px;
+  margin: 8px 0;
+  border: 1px solid #777777;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid #777777;
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #FF9500; /* Green */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -51,30 +66,47 @@ th {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 4px 20px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
 }
 
 .buttonAdd {
-  
+  background-color: #56c45d;
 }
 
 .buttonAdd:hover {
-  background-color: red;
+  background-color: #1faf22;
 }
 
 .buttonRemove {
+  background-color: #e04c4c;
+}
 
+.buttonRemove:hover {
+  background-color: #aa2222;
 }
 
 .buttonSend {
+  background-color: #6588f2;
+}
 
+.buttonSend:hover {
+  background-color: #4a51db;
 }
 
 .istok {
   font-family: 'Istok Web', sans-serif;
+
+}
+
+.rufina {
+  font-family: 'Rufina', serif;
+}
+
+.alike {
+  font-family: 'Alike', serif;
 }
 
 .flex {
@@ -84,4 +116,7 @@ th {
 
 .font15 {
   font-size: 15px;
+}
+
+.buttonOptions {
 }

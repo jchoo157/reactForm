@@ -298,7 +298,7 @@ class App extends Component {
         <div className="flex">
           <table>
             <tbody>
-              <tr>
+              <tr className="alike">
                 <th className="font15">Select User</th>
                 <th className="font15">Select Organization</th>
               </tr>
@@ -311,13 +311,15 @@ class App extends Component {
         </div>
 
         {this.state.rows.map((email, i) => (Object.keys(email) == this.state.selectedEmail) ? 
-          <div key={i}>
-            <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
-            <br />
-            <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
-            <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
-            <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
-          </div>
+          <center>
+            <div key={i} className="buttonOptions">
+              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
+              <br />
+              <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
+              <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
+              <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
+            </div>
+          </center>
          : "" )}
         
       </div>
