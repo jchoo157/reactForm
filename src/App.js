@@ -3,128 +3,128 @@ import UserMeritRow from './UserMeritRow';
 import ChooseOrganization from './ChooseOrganization';
 import SelectEmail from './SelectEmail';
 
-var identificationGenerator = JSON.parse(localStorage.getItem('identificationGenerator'))
-var selected = JSON.parse(localStorage.getItem('selected'))
-var selectedCompany = JSON.parse(localStorage.getItem('selectedCompany'))
-var selectedEmail = JSON.parse(localStorage.getItem('selectedEmail'))
-var companyMerits = JSON.parse(localStorage.getItem('companyMerits'))
-var rows = JSON.parse(localStorage.getItem('rows')) || [];
-
 class App extends Component {
 
   constructor(props) {
     super(props);
 
+    var identificationGenerator = JSON.parse(localStorage.getItem('identificationGenerator'))
+    var selected = JSON.parse(localStorage.getItem('selected'))
+    var selectedCompany = JSON.parse(localStorage.getItem('selectedCompany'))
+    var selectedEmail = JSON.parse(localStorage.getItem('selectedEmail'))
+    var companyMerits = JSON.parse(localStorage.getItem('companyMerits'))
+    var rows = JSON.parse(localStorage.getItem('rows')) || [];
+
     if (localStorage.getItem('rows') === null) {localStorage.setItem('rows', JSON.stringify([
-  {
-    'jchoo156@gmail.com': [
-      { 
-        email: 'jchoo156@gmail.com',
-        firstName: 'Johnny',
-        lastName: 'Choo',
-        merit: { type: 'sigmaEngineering', id: 'x' },
-        date: '2017-01-10',
-        expirationDate: '2099-01-10',
-        identificationCode: '1',
-        selected: false
+      {
+        'jchoo156@gmail.com': [
+          { 
+            email: 'jchoo156@gmail.com',
+            firstName: 'Johnny',
+            lastName: 'Choo',
+            merit: { type: 'sigmaEngineering', id: 'x' },
+            date: '2017-01-10',
+            expirationDate: '2099-01-10',
+            identificationCode: '1',
+            selected: false
+          },
+          { 
+            email: 'jchoo156@gmail.com',
+            firstName: 'Johnny',
+            lastName: 'Choo',
+            merit: { type: 'sigmaEngineering', id: 'y' },
+            date: '2017-01-10',
+            expirationDate: '2099-01-10',
+            identificationCode: '2',
+            selected: false
+          },
+          { 
+            email: 'jchoo156@gmail.com',
+            firstName: 'Johnny',
+            lastName: 'Choo',
+            merit: { type: 'sigmaEngineering', id: 'z' },
+            date: '2017-01-10',
+            expirationDate: '2099-01-10',
+            identificationCode: '3',
+            selected: false
+          },
+          { 
+            email: 'jchoo156@gmail.com',
+            firstName: 'Johnny',
+            lastName: 'Choo',
+            merit: { type: 'superSmashBros', id: 'x' },
+            date: '2010-03-05',
+            expirationDate: '2020-04-11',
+            identificationCode: '4',
+            selected: false
+          },
+          { 
+            email: 'jchoo156@gmail.com',
+            firstName: 'Johnny',
+            lastName: 'Choo',
+            merit: { type: 'superSmashBros', id: 'y' },
+            date: '2010-01-19',
+            expirationDate: '2015-01-19',
+            identificationCode: '5',
+            selected: false
+          }
+        ]
       },
-      { 
-        email: 'jchoo156@gmail.com',
-        firstName: 'Johnny',
-        lastName: 'Choo',
-        merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '2017-01-10',
-        expirationDate: '2099-01-10',
-        identificationCode: '2',
-        selected: false
-      },
-      { 
-        email: 'jchoo156@gmail.com',
-        firstName: 'Johnny',
-        lastName: 'Choo',
-        merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '2017-01-10',
-        expirationDate: '2099-01-10',
-        identificationCode: '3',
-        selected: false
-      },
-      { 
-        email: 'jchoo156@gmail.com',
-        firstName: 'Johnny',
-        lastName: 'Choo',
-        merit: { type: 'superSmashBros', id: 'x' },
-        date: '2010-03-05',
-        expirationDate: '2020-04-11',
-        identificationCode: '4',
-        selected: false
-      },
-      { 
-        email: 'jchoo156@gmail.com',
-        firstName: 'Johnny',
-        lastName: 'Choo',
-        merit: { type: 'superSmashBros', id: 'y' },
-        date: '2010-01-19',
-        expirationDate: '2015-01-19',
-        identificationCode: '5',
-        selected: false
+      {
+        'omer@sigma.com': [
+          { 
+            email: 'omer@sigma.com',
+            firstName: 'Omer',
+            lastName: 'Test',
+            merit: { type: 'sigmaEngineering', id: 'w' },
+            date: '2016-03-01',
+            expirationDate: '2099-03-01',
+            identificationCode: '6',
+            selected: false
+          },
+          { 
+            email: 'omer@sigma.com',
+            firstName: 'Omer',
+            lastName: 'Test',
+            merit: { type: 'sigmaEngineering', id: 'y' },
+            date: '2016-03-01',
+            expirationDate: '2099-03-01',
+            identificationCode: '7',
+            selected: false
+          },
+          { 
+            email: 'omer@sigma.com',
+            firstName: 'Omer',
+            lastName: 'Test',
+            merit: { type: 'sigmaEngineering', id: 'z' },
+            date: '2016-03-01',
+            expirationDate: '2099-03-01',
+            identificationCode: '8',
+            selected: false
+          },
+          { 
+            email: 'omer@sigma.com',
+            firstName: 'Omer',
+            lastName: 'Test',
+            merit: { type: 'marioKart', id: 'x' },
+            date: '2012-01-10',
+            expirationDate: '2019-01-10',
+            identificationCode: '9',
+            selected: false
+          },
+          { 
+            email: 'omer@sigma.com',
+            firstName: 'Omer',
+            lastName: 'Test',
+            merit: { type: 'marioKart', id: 'y' },
+            date: '2010-01-10',
+            expirationDate: '2016-01-10',
+            identificationCode: '10',
+            selected: false
+          }
+        ]
       }
-    ]
-  },
-  {
-    'omer@sigma.com': [
-      { 
-        email: 'omer@sigma.com',
-        firstName: 'Omer',
-        lastName: 'Test',
-        merit: { type: 'sigmaEngineering', id: 'w' },
-        date: '2016-03-01',
-        expirationDate: '2099-03-01',
-        identificationCode: '6',
-        selected: false
-      },
-      { 
-        email: 'omer@sigma.com',
-        firstName: 'Omer',
-        lastName: 'Test',
-        merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '2016-03-01',
-        expirationDate: '2099-03-01',
-        identificationCode: '7',
-        selected: false
-      },
-      { 
-        email: 'omer@sigma.com',
-        firstName: 'Omer',
-        lastName: 'Test',
-        merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '2016-03-01',
-        expirationDate: '2099-03-01',
-        identificationCode: '8',
-        selected: false
-      },
-      { 
-        email: 'omer@sigma.com',
-        firstName: 'Omer',
-        lastName: 'Test',
-        merit: { type: 'marioKart', id: 'x' },
-        date: '2012-01-10',
-        expirationDate: '2019-01-10',
-        identificationCode: '9',
-        selected: false
-      },
-      { 
-        email: 'omer@sigma.com',
-        firstName: 'Omer',
-        lastName: 'Test',
-        merit: { type: 'marioKart', id: 'y' },
-        date: '2010-01-10',
-        expirationDate: '2016-01-10',
-        identificationCode: '10',
-        selected: false
-      }
-    ]
-  }
-]))}
+    ]))}
 
     {localStorage.setItem('identificationGenerator', JSON.stringify(Math.random()))}
     if (localStorage.getItem('selected') === null) {localStorage.setItem('selected', JSON.stringify([]))}
