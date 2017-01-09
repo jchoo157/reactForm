@@ -168,7 +168,7 @@ class App extends Component {
 
   addMerit() {
     var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
-    this.state.identificationGenerator += 1;
+    this.state.identificationGenerator = Math.random();
     var usersArray = this.state.rows;
     var userData = {};
     for(var i = 0; i < usersArray.length; i ++) {
