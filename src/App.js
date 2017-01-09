@@ -270,6 +270,7 @@ class App extends Component {
   };
 
   updateMerit(e) {
+    var id = e.target.parentElement.parentElement.id
     var currentRows = this.state.rows;
     var companyVal = this.state.companyMerits[this.state.selectedCompany]
     var merit = ""
@@ -288,8 +289,9 @@ class App extends Component {
     }
 
     for (var i = 0; i < userObject[Object.keys(userObject)].length; i++) {
-      if(userObject[Object.keys(userObject)][i].identificationCode == e.target.id) {
+      if(userObject[Object.keys(userObject)][i].identificationCode == id) {
         userObject[Object.keys(userObject)][i].merit.id = merit;
+        console.log('asdfasdf')
       }
     };
 
