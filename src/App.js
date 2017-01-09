@@ -23,8 +23,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'x' },
-        date: '12/01/2018',
-        expirationDate: '8/01/2022',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '1',
         selected: false
       },
@@ -33,8 +33,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '01/01/2017',
-        expirationDate: '02/01/2021',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '2',
         selected: false
       },
@@ -43,8 +43,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '3/01/2015',
-        expirationDate: '5/01/2019',
+        date: '2017-01-10',
+        expirationDate: '2099-01-10',
         identificationCode: '3',
         selected: false
       },
@@ -53,8 +53,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'superSmashBros', id: 'x' },
-        date: '4/01/2012',
-        expirationDate: '5/01/2019',
+        date: '2010-03-05',
+        expirationDate: '2020-04-11',
         identificationCode: '4',
         selected: false
       },
@@ -63,8 +63,8 @@ class App extends Component {
         firstName: 'Johnny',
         lastName: 'Choo',
         merit: { type: 'superSmashBros', id: 'y' },
-        date: '11/01/2010',
-        expirationDate: '5/01/2016',
+        date: '2010-01-19',
+        expirationDate: '2015-01-19',
         identificationCode: '5',
         selected: false
       }
@@ -77,8 +77,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'w' },
-        date: '12/01/2018',
-        expirationDate: '8/01/2022',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '6',
         selected: false
       },
@@ -87,8 +87,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'y' },
-        date: '01/01/2017',
-        expirationDate: '02/01/2021',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '7',
         selected: false
       },
@@ -97,8 +97,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'sigmaEngineering', id: 'z' },
-        date: '3/01/2015',
-        expirationDate: '5/01/2019',
+        date: '2016-03-01',
+        expirationDate: '2099-03-01',
         identificationCode: '8',
         selected: false
       },
@@ -107,8 +107,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'marioKart', id: 'x' },
-        date: '4/01/2012',
-        expirationDate: '5/01/2019',
+        date: '2012-01-10',
+        expirationDate: '2019-01-10',
         identificationCode: '9',
         selected: false
       },
@@ -117,8 +117,8 @@ class App extends Component {
         firstName: 'Omer',
         lastName: 'Test',
         merit: { type: 'marioKart', id: 'y' },
-        date: '11/01/2010',
-        expirationDate: '5/01/2016',
+        date: '2010-01-10',
+        expirationDate: '2016-01-10',
         identificationCode: '10',
         selected: false
       }
@@ -168,7 +168,19 @@ class App extends Component {
   };
 
   addMerit() {
-    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: '', expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    if(dd < 10) {
+      dd = '0' + dd
+    } 
+    if(mm < 10) {
+        mm = '0' + mm
+    } 
+    today = yyyy+'-'+dd+'-'+mm;
+
+    var row = { email: this.state.selectedEmail, firstName: '', lastName: '', merit: { type: this.state.selectedCompany, id: '' }, date: today, expirationDate: '', identificationCode: this.state.identificationGenerator, selected: false }
     this.state.identificationGenerator = Math.random();
     var usersArray = this.state.rows;
     var userData = {};
@@ -203,6 +215,7 @@ class App extends Component {
 
     var newArray = []
     this.state.rows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userObject) : newArray.push(user))
+    localStorage.setItem('rows', JSON.stringify(newArray))
     this.setState({rows: newArray});
   };
 
@@ -237,9 +250,12 @@ class App extends Component {
     console.log(userRow[Object.keys(userRow)][0].selected)
     var newArray = []
     currentRows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userRow) : newArray.push(user))
+
+    localStorage.setItem('rows', JSON.stringify(newArray))
+
     this.setState({rows: newArray});
 
-    alert("Merits have been succesfully sent to " + this.state.selectedEmail)
+    alert("Sent email to " + this.state.selectedEmail)
   }
 
   chooseOrganization(e) {
@@ -279,19 +295,31 @@ class App extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state.rows)}
-        <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
-        <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
+        <div className="flex">
+          <table>
+            <tbody>
+              <tr className="alike">
+                <th className="font15">Select User</th>
+                <th className="font15">Select Organization</th>
+              </tr>
+              <tr>
+                <td><SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} /></td>
+                <td><ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
-          <div key={i}>
-            <h1>{email[Object.keys(email)].map((user, i) => user.selected.toString())}</h1>
-            <button onClick={this.removeMerits}>Remove</button>
-            <button onClick={this.sendMerits}>Send</button>
-            <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
-            <br />
-            <button onClick={this.addMerit}>ADD</button>
-          </div>
+        {this.state.rows.map((email, i) => (Object.keys(email) == this.state.selectedEmail) ? 
+          <center>
+            <div key={i} className="buttonOptions">
+              <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
+              <br />
+              <button className="buttonAdd button" onClick={this.addMerit}>Add</button>
+              <button className="buttonRemove button" onClick={this.removeMerits}>Remove</button>
+              <button className="buttonSend button" onClick={this.sendMerits}>Send</button>
+            </div>
+          </center>
          : "" )}
         
       </div>

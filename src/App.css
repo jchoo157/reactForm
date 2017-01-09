@@ -22,3 +22,102 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {  
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f7e8d4}
+
+th {
+  background-color: #f4ae4b;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 3px;
+  margin: 8px 0;
+  border: 1px solid #777777;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid #777777;
+}
+
+.button {
+  background-color: #FF9500; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 20px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonAdd {
+  background-color: #56c45d;
+}
+
+.buttonAdd:hover {
+  background-color: #1faf22;
+}
+
+.buttonRemove {
+  background-color: #e04c4c;
+}
+
+.buttonRemove:hover {
+  background-color: #aa2222;
+}
+
+.buttonSend {
+  background-color: #6588f2;
+}
+
+.buttonSend:hover {
+  background-color: #4a51db;
+}
+
+.istok {
+  font-family: 'Istok Web', sans-serif;
+
+}
+
+.rufina {
+  font-family: 'Rufina', serif;
+}
+
+.alike {
+  font-family: 'Alike', serif;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.font15 {
+  font-size: 15px;
+}
+
+.buttonOptions {
+}
