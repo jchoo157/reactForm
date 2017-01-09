@@ -257,7 +257,7 @@ class App extends Component {
             <h1>{email[Object.keys(email)].map((user, i) => user.selected.toString())}</h1>
             <button onClick={this.removeMerits}>Remove</button>
             <button onClick={this.sendMerits}>Send</button>
-            {email[Object.keys(email)].map((user, i) => (user.merit.type == this.state.selectedCompany) ? <UserMeritRow key={i} selectedProp={user.selected} selectProp={this.selectMerit} emailProp={user.email} firstNameProp={user.firstName} lastNameProp={user.lastName} meritIdProp={user.merit.id} meritProp={this.state.companyMerits[user.merit.type]} dateProp={user.date} expirationDateProp={user.expirationDate} identificationProp={user.identificationCode}/> : "")}
+            <UserMeritRow key={i} rowsProp={email} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
             <button onClick={this.addMerit}>ADD</button>
           </div>
          : "" )}
