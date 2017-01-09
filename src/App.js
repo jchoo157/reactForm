@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserMeritRow from './UserMeritRow';
-import MeritOptions from './MeritOptions';
+import ChooseOrganization from './ChooseOrganization';
 import SelectEmail from './SelectEmail';
 
 var identificationGenerator = JSON.parse(localStorage.getItem('identificationGenerator'))
@@ -242,6 +242,7 @@ class App extends Component {
   }
 
   chooseOrganization(e) {
+    localStorage.setItem('selectedCompany', JSON.stringify(e.target.value))
     this.setState({selectedCompany: e.target.value});
   };
 
@@ -279,7 +280,7 @@ class App extends Component {
       <div>
         {console.log(this.state.rows)}
         <SelectEmail selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
-        <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
+        <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
 
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
           <div key={i}>
