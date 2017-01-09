@@ -203,6 +203,7 @@ class App extends Component {
 
     var newArray = []
     this.state.rows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userObject) : newArray.push(user))
+    localStorage.setItem('rows', JSON.stringify(newArray))
     this.setState({rows: newArray});
   };
 
@@ -282,7 +283,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="inline">
           <SelectEmail currentEmailProp={this.state.selectedEmail} selectEmailProp={this.selectEmail} emailsProp={this.state.rows.map((email, i) => Object.keys(email))} />
           <ChooseOrganization currentOrganizationProp={this.state.selectedCompany} chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
           <button onClick={this.removeMerits}>Remove</button>
