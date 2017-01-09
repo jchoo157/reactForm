@@ -23,15 +23,15 @@ class UserMeritRow extends Component {
               <th>Identification Code</th>
             </tr>
                 {this.props.rowsProp[Object.keys(this.props.rowsProp)].map((user, i) => (user.merit.type == this.props.selectedCompanyProp) ? (
-                  <tr>
+                  <tr key={i}>
                     <td><input type="checkbox" onClick={this.props.selectProp} checked={user.selected} id={user.identificationCode} /></td>
                     <td><input type="text" defaultValue={user.email} placeholder="email" /></td>
                     <td><input type="text" defaultValue={user.firstName} placeholder="first name" /></td>
                     <td><input type="text" defaultValue={user.lastName} placeholder="last name" /></td>
-                    <td><select onChange={this.props.updateMerit}>
+                    <td><select onChange={this.props.updateMeritProp} id={user.identificationCode}>
                       {
                         this.props.meritProp[user.merit.type].map((merit, i) => 
-                          (user.merit.id == merit.id) ? <option key={i} value={merit.title} selected>{merit.title}</option> : <option key={i} value={merit.title}>{merit.title}</option>
+                          (user.merit.id == merit.id) ? <option key={i} defaultValue={merit.title} selected>{merit.title}</option> : <option key={i} defaultValue={merit.title}>{merit.title}</option>
                         )
                       }
                     </select></td>

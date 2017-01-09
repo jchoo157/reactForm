@@ -164,6 +164,7 @@ class App extends Component {
     this.removeMerits = this.removeMerits.bind(this);
     this.sendMerits = this.sendMerits.bind(this);
     this.selectEmail = this.selectEmail.bind(this);
+    this.updateMerit = this.updateMerit.bind(this);
   };
 
   addMerit() {
@@ -246,7 +247,24 @@ class App extends Component {
   };
 
   updateMerit(e) {
-    
+    var companyVal = this.state.companyMerits[this.state.selectedCompany]
+    var merit = ""
+    companyVal.map((merit, i) => (merit.title == e.target.value) ? (merit = merit.id) : "")
+    var email = this.state.selectedEmail;
+    var userObject = {};
+    var userRow = this.state.rows.map((row, i) => (Object.keys(row) == this.state.selectedEmail) ? (userObject = row) : "");
+    for (var i = 0; i < userObject[Object.keys(userObject)].length; i++) {
+      if(userObject[Object.keys(userObject)][i].identificationCode == e.target.id) {
+        userObject[Object.keys(userObject)][i].merit = {type: e.target.value, id: merit };
+      }
+    };
+
+    var newArray = []
+    this.state.rows.map((user,i) => (Object.keys(user) == this.state.selectedEmail) ? newArray.push(userObject) : newArray.push(user))
+
+    localStorage.setItem('rows', JSON.stringify(newArray));
+
+    this.setState({rows: newArray});
   }
 
   render() {
@@ -257,11 +275,11 @@ class App extends Component {
         <MeritOptions chooseOrganizationProp={this.chooseOrganization} companyMeritsProp={Object.keys(this.state.companyMerits)} />
 
         {this.state.rows.map((email,i) => (Object.keys(email) == this.state.selectedEmail) ? 
-          <div>
+          <div key={i}>
             <h1>{email[Object.keys(email)].map((user, i) => user.selected.toString())}</h1>
             <button onClick={this.removeMerits}>Remove</button>
             <button onClick={this.sendMerits}>Send</button>
-            <UserMeritRow key={i} rowsProp={email} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
+            <UserMeritRow key={i} rowsProp={email} updateMeritProp={this.updateMerit} selectedCompanyProp={this.state.selectedCompany} selectProp={this.selectMerit} meritProp={this.state.companyMerits}/>
             <br />
             <button onClick={this.addMerit}>ADD</button>
           </div>
@@ -271,5 +289,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
